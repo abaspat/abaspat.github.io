@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abastecedora Patagónica | Materiales Eléctricos e Iluminación</title>
+
+    <!-- Favicon desde GitHub (Enlace RAW directo) -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/abaspat/homepage/ab3e505c027c0b0a955a20da7ed8ad68fa24a61c/logo_ajustado.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#003B95',
+                            darkblue: '#0B2545',
+                            accent: '#00A887', // Verde Península EYS
+                            accentHover: '#00886D',
+                            yellow: '#FFC800',
+                            light: '#EEF8F6',
+                            dark: '#071E3D',
+                            emerald: '#00A887'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(11, 37, 69, 0.95) 0%, rgba(0, 59, 149, 0.88) 100%), url('https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .pattern-grid {
+            background-image: radial-gradient(rgba(0, 168, 135, 0.2) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Topbar Informativa -->
+    <div class="bg-brand-darkblue text-white text-xs md:text-sm py-2 px-4 border-b border-blue-900/50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-accent"></i> Dr. Ávila 560, Puerto Madryn, Chubut</span>
+                <span class="hidden md:flex items-center gap-2"><i class="fa-solid fa-award text-brand-yellow"></i> Desde 1980, construyendo confianza</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="tel:02804975043" class="hover:text-brand-accent transition"><i class="fa-solid fa-phone mr-1"></i> (280) 445-3668</a>
+                <a href="https://wa.me/5492804975043" target="_blank" class="hover:text-green-400 transition flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp"></i> 280 497-5043
+                </a>
+                <!--<a href="https://abaspatweb.com.ar/" target="_blank" class="bg-brand-accent hover:bg-brand-accentHover text-white font-bold px-2.5 py-0.5 rounded transition text-xs flex items-center gap-1">
+                    <i class="fa-solid fa-cart-shopping"></i> E-Shop
+                </a>-->
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <a href="https://www.instagram.com/abastecedorapatagonica" target="_blank" class="hover:text-brand-accent transition" title="Instagram"><i class="fa-brands fa-instagram text-base"></i></a>
+                <a href="https://www.facebook.com/abastecedorapatagonica" target="_blank" class="hover:text-brand-accent transition" title="Facebook"><i class="fa-brands fa-facebook-f text-base"></i></a>
+                <a href="https://ar.linkedin.com/company/abastecedora-patag%C3%B3nica" target="_blank" class="hover:text-brand-accent transition" title="LinkedIn"><i class="fa-brands fa-linkedin-in text-base"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Navegación Principal -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-3 group py-2">
+                        <!-- Logo desde GitHub (RAW URL) -->
+                        <img src="https://raw.githubusercontent.com/abaspat/homepage/ab3e505c027c0b0a955a20da7ed8ad68fa24a61c/logo_ajustado.png"
+                             alt="Abastecedora Patagónica - Materiales para Instalaciones Eléctricas"
+                             class="h-12 md:h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                    </a>
+                </div>
+
+                <!-- Menú Desktop -->
+                <div class="hidden lg:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#inicio" class="text-gray-700 hover:text-brand-accent transition-colors">Inicio</a>
+                    <a href="#nosotros" class="text-gray-700 hover:text-brand-accent transition-colors">Nosotros</a>
+                    <a href="#propocito-mision" class="text-gray-700 hover:text-brand-accent transition-colors">Propósito y Misión</a>
+                    <a href="#renovables" class="text-brand-accent font-bold hover:text-brand-accentHover transition-colors flex items-center gap-1">Sustentables</a>
+                    <a href="#valores" class="text-gray-700 hover:text-brand-accent transition-colors">Valores</a>
+                    <a href="#soluciones" class="text-gray-700 hover:text-brand-accent transition-colors">Soluciones</a>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="https://abaspatweb.com.ar/" target="_blank" class="bg-brand-blue hover:bg-brand-darkblue text-white px-4 py-2.5 rounded-xl font-semibold shadow-md transition-all flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-store text-brand-yellow"></i> Tienda Online
+                    </a>
+                    <a href="#contacto" class="bg-brand-accent hover:bg-brand-accentHover text-white px-4 py-2.5 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-paper-plane"></i> Cotizar
+                    </a>
+                </div>
+
+                <!-- Botón Menú Mobile -->
+                <div class="flex lg:hidden items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-brand-accent p-2 text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Mobile Desplegable -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-gray-700 hover:text-brand-accent font-medium border-b border-gray-100">Inicio</a>
+            <a href="#nosotros" class="block py-2 text-gray-700 hover:text-brand-accent font-medium border-b border-gray-100">Nosotros</a>
+            <a href="#propocito-mision" class="block py-2 text-gray-700 hover:text-brand-accent font-medium border-b border-gray-100">Propósito y Misión</a>
+            <a href="#renovables" class="block py-2 text-brand-accent font-bold border-b border-gray-100"><i class="fa-solid fa-solar-panel mr-1"></i> Proyectos Energías Renovables</a>
+            <a href="#valores" class="block py-2 text-gray-700 hover:text-brand-accent font-medium border-b border-gray-100">Valores</a>
+            <a href="#soluciones" class="block py-2 text-gray-700 hover:text-brand-accent font-medium border-b border-gray-100">Soluciones</a>
+            <a href="https://abaspatweb.com.ar/" target="_blank" class="block text-center mt-2 bg-brand-blue text-white py-2.5 rounded-lg font-bold">Tienda Online</a>
+            <a href="#contacto" class="block text-center mt-2 bg-brand-accent text-white py-2.5 rounded-lg font-bold">Solicitar Cotización</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative hero-bg text-white min-h-[85vh] flex items-center py-20 px-4 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-darkblue/90 via-brand-blue/75 to-transparent"></div>
+        <div class="max-w-7xl mx-auto relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-brand-yellow font-medium text-sm border border-white/20">
+                        <i class="fa-solid fa-shield-halved"></i> 45 Años de trayectoria en la Patagonia
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Materiales Eléctricos e Iluminación para la <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-brand-accent to-emerald-300">Industria, Comercio y Hogar</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-200 max-w-2xl font-light leading-relaxed">
+                        Representamos a las mejores marcas del mercado, ofreciendo siempre calidad, confianza y el mejor precio para impulsar el desarrollo energético responsable de nuestra región.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <!--<a href="https://abaspatweb.com.ar/" target="_blank" class="bg-brand-accent hover:bg-brand-accentHover text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-emerald-500/30 transition-all flex items-center justify-center gap-3 group">
+                            <i class="fa-solid fa-cart-shopping"></i> Comprar en E-Shop
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#renovables" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-sm font-semibold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-leaf text-brand-accent"></i> Energías Renovables
+                        </a>-->
+                    </div>
+
+                    <!-- Métricas destacadas -->
+                    <div class="pt-10 grid grid-cols-3 gap-4 border-t border-white/10 mt-8">
+                        <div>
+                            <span class="text-3xl lg:text-4xl font-extrabold text-brand-yellow block">1980</span>
+                            <span class="text-xs sm:text-sm text-gray-300">Año de fundación</span>
+                        </div>
+                        <div>
+                            <span class="text-3xl lg:text-4xl font-extrabold text-white block">100%</span>
+                            <span class="text-xs sm:text-sm text-gray-300">Marcas Oficiales</span>
+                        </div>
+                        <div>
+                            <span class="text-3xl lg:text-4xl font-extrabold text-brand-accent block">Eficiencia</span>
+                            <span class="text-xs sm:text-sm text-gray-300">Energía inteligente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Asesoramiento Rápido -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white text-gray-800 rounded-3xl p-8 shadow-2xl border border-gray-100 relative">
+                        <div class="absolute -top-4 -right-4 bg-brand-accent text-white p-3 rounded-2xl shadow-lg hidden sm:block">
+                            <i class="fa-solid fa-bolt text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-blue mb-2">¿Necesitás asesoramiento técnico?</h3>
+                        <p class="text-gray-600 text-sm mb-6">Nuestros especialistas te ayudan a seleccionar el insumo ideal para tu proyecto o instalación.</p>
+
+                        <form id="hero-quick-form" onsubmit="event.preventDefault(); handleQuickQuote();" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Sector de interés</label>
+                                <select id="sector-select" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-accent focus:outline-none">
+                                    <option value="Instalador Matriculado">Instalador / Electricista Matriculado</option>
+                                    <option value="Industria / Minería / Petróleo">Industria / Minería y Petróleo / Pesca</option>
+                                    <option value="Comercio y Obras">Comercio / Obras y Distribución</option>
+                                    <option value="Hogar y Residencial">Hogar / Proyecto Residencial</option>
+                                    <option value="Proyectos Solar / Autogeneración (Península EYS)">Energías Renovables / Paneles Solares</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Nombre o Empresa</label>
+                                <input type="text" id="quick-name" required placeholder="Tu nombre o razón social" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-accent focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Teléfono / WhatsApp</label>
+                                <input type="tel" id="quick-phone" required placeholder="Ej: 280 4975043" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-accent focus:outline-none">
+                            </div>
+                            <button type="submit" class="w-full bg-brand-blue hover:bg-brand-darkblue text-white font-bold py-3.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-green-400 text-lg"></i> Consultar por WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resumen Empresa / Trayectoria -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-brand-dark">
+                        <!-- Foto del Local -->
+                        <div class="relative group">
+                            <!--<img src="https://abaspatweb.com.ar/wp-content/uploads/2023/10/fachada-abastecedora.jpg"
+                                 onerror="this.onerror=null; this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV67KXoAgaw-bDWFclU7RtBLP7_l6gAnchu_fDIMT8mWSyULOoilIW65A&s=10';"
+                                 alt="Fachada de Abastecedora Patagónica en Puerto Madryn" class="w-full h-[450px] object-cover">-->
+                            <img src="https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/abastecedora%20patago%CC%81nica.png"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80';"
+                                 alt="Fachada de Abastecedora Patagónica en Puerto Madryn" class="w-full h-[450px] object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-darkblue/80 via-transparent to-transparent opacity-90"></div>
+                            <div class="absolute bottom-6 left-6 right-6 text-white">
+                                <span class="bg-brand-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Local Comercial</span>
+                                <h4 class="text-xl font-bold">Dr. Ávila 560</h4>
+                                <p class="text-xs text-gray-200">Puerto Madryn, Chubut</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-brand-blue text-white p-6 rounded-2xl shadow-xl z-20 max-w-xs hidden sm:block">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-users-between-lines text-4xl text-brand-accent"></i>
+                            <div>
+                                <p class="text-2xl font-bold">Empresa Familiar</p>
+                                <p class="text-xs text-gray-300">Raíces patagónicas y compromiso intergeneracional.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-brand-light rounded-full -z-0 pattern-grid"></div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-block bg-brand-light text-brand-accent font-bold px-4 py-1.5 rounded-full text-sm border border-brand-accent/20">
+                        Sobre Nosotros
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue leading-tight">
+                        45 años abasteciendo soluciones confiables y eficientes
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Somos <strong>Abastecedora Patagónica</strong>, una empresa familiar con 45 años de trayectoria, dedicada a la comercialización y distribución de materiales eléctricos.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Representamos a las mejores marcas del mercado, ofreciendo siempre calidad, confianza y el mejor precio. A lo largo de las décadas nos hemos consolidado como un aliado estratégico fundamental para la industria, el sector comercial y los hogares de toda la región.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start gap-3 p-4 bg-brand-light/50 rounded-xl border border-emerald-100">
+                            <i class="fa-solid fa-check-circle text-brand-accent text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-blue">Marcas Líderes</h4>
+                                <p class="text-xs text-gray-600">Garantía oficial y certificación en todos los productos.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-brand-light/50 rounded-xl border border-emerald-100">
+                            <i class="fa-solid fa-handshake text-brand-accent text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-blue">Relación Cercana</h4>
+                                <p class="text-xs text-gray-600">Trato personalizado y asesoramiento permanente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión, Visión y Propósito -->
+    <section id="propocito-mision" class="py-20 bg-gradient-to-b from-gray-50 to-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-bold text-sm tracking-widest uppercase">Nuestra Guía Estratégica</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue mt-2">Misión, Visión y Propósito</h2>
+                <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grid Misión y Visión -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <!-- Misión -->
+                <div class="bg-white p-8 lg:p-10 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0 transition-all group-hover:scale-110"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-brand-blue text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-blue mb-4">Misión</h3>
+                        <p class="text-gray-600 leading-relaxed text-lg">
+                            Abastecer soluciones eléctricas confiables y eficientes que impulsen el desarrollo de nuestra comunidad. Como distribuidores, buscamos fortalecer nuestro compromiso en la cadena de valor, contribuyendo a un impacto ambiental positivo en la región.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visión -->
+                <div class="bg-white p-8 lg:p-10 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-0 transition-all group-hover:scale-110"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-brand-accent text-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-blue mb-4">Visión</h3>
+                        <p class="text-gray-600 leading-relaxed text-lg">
+                            Liderar la distribución de soluciones eléctricas en la Patagonia siendo reconocidos por nuestro compromiso social y ambiental, inspirando y dando valor al mercado eléctrico.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Propósito Integral Destacado -->
+            <div class="bg-brand-blue text-white rounded-3xl p-8 lg:p-12 shadow-2xl relative overflow-hidden pattern-grid">
+                <div class="max-w-4xl mx-auto text-center space-y-6">
+                    <span class="inline-block bg-white/10 text-brand-yellow font-semibold px-4 py-1.5 rounded-full text-sm border border-white/20">
+                        El Corazón de Nuestra Organización
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold italic text-brand-yellow">
+                        "Sostener el crecimiento integral de nuestra empresa, sus colaboradores y grupos de interés, aportando valor al mercado eléctrico."
+                    </h3>
+                    <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto">
+                        Nuestro propósito se desglosa en cuatro pilares fundamentales de acción diaria:
+                    </p>
+                </div>
+
+                <!-- Desglose de Propósito -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/15 transition">
+                        <div class="text-brand-accent text-2xl mb-3"><i class="fa-solid fa-chart-line"></i></div>
+                        <h4 class="font-bold text-lg text-white mb-2">Crecimiento</h4>
+                        <p class="text-xs text-gray-200 leading-relaxed">
+                            Nos motiva la mejora continua. Más conocimientos, mejor calidad, más vínculos, más productos y más distribución, impulsando la eficiencia energética.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/15 transition">
+                        <div class="text-brand-yellow text-2xl mb-3"><i class="fa-solid fa-brain"></i></div>
+                        <h4 class="font-bold text-lg text-white mb-2">Integral</h4>
+                        <p class="text-xs text-gray-200 leading-relaxed">
+                            El conocimiento es el motor del desarrollo. Compartimos e informamos para facilitar decisiones responsables hacia un futuro más sostenible.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/15 transition">
+                        <div class="text-brand-accent text-2xl mb-3"><i class="fa-solid fa-people-roof"></i></div>
+                        <h4 class="font-bold text-lg text-white mb-2">Colaboradores</h4>
+                        <p class="text-xs text-gray-200 leading-relaxed">
+                            Desde 1980 cuidamos a nuestra gente como parte de la familia. Fomentamos más oportunidades, inclusión y desarrollo personal.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/15 transition">
+                        <div class="text-brand-yellow text-2xl mb-3"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                        <h4 class="font-bold text-lg text-white mb-2">Grupos de Interés</h4>
+                        <p class="text-xs text-gray-200 leading-relaxed">
+                            Comprometidos con clientes, instaladores, vecinos y proveedores, garantizando acceso a soluciones eléctricas eficientes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Proyectos en Energías Renovables y Autogeneración (Península EYS) -->
+    <section id="renovables" class="py-20 bg-gradient-to-br from-brand-darkblue via-slate-900 to-brand-blue text-white relative overflow-hidden">
+        <div class="absolute inset-0 pattern-grid opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-brand-accent/20 text-brand-accent border border-brand-accent/40 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-solar-panel"></i> Innovación y Sustentabilidad
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight text-white">
+                        Proyectos en Energías Renovables y <span class="text-brand-accent">Autogeneración</span>
+                    </h2>
+
+                    <p class="text-gray-200 text-lg leading-relaxed font-light">
+                        En Abastecedora Patagónica <strong>buscamos ser sustentables en energía e innovación</strong>. Por eso desarrollamos y acompañamos proyectos de energías limpias a través de nuestra empresa vinculada <a href="https://www.peninsulaeys.com/" target="_blank" class="text-brand-accent font-bold underline hover:text-white">Península Energía y Sustentabilidad</a>.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <div class="w-10 h-10 bg-brand-accent/20 text-brand-accent rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-sun"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Sistemas Fotovoltaicos & Solar</h4>
+                                <p class="text-xs text-gray-300">Diseño, provisión de equipos e ingeniería para instalaciones On-Grid, Off-Grid e Híbridas en la Patagonia.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <div class="w-10 h-10 bg-brand-accent/20 text-brand-accent rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-charging-station"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Autogeneración Eficiente</h4>
+                                <p class="text-xs text-gray-300">Soluciones para reducir el impacto ambiental y garantizar la independencia energética en industrias, áreas rurales y hogares.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="https://www.peninsulaeys.com/" target="_blank" class="bg-brand-accent hover:bg-brand-accentHover text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-brand-accent/30 transition-all flex items-center gap-3">
+                            <i class="fa-solid fa-globe"></i> Conocé Península EYS
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="relative">
+                        <div class="rounded-3xl overflow-hidden border-2 border-brand-accent/30 shadow-2xl relative">
+                            <!-- <img src="https://scontent.fnqn2-1.fna.fbcdn.net/v/t51.82787-15/674467965_18049489520752847_5609862456789836033_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x810&ctp=s1440x810&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=oMCHG4CePtAQ7kNvwGBfXrH&_nc_oc=AdqOPSzj1w6QVUL8-eDUS9aavsfnFDMPhmUcEvpPnYTcOvg4fGPJCQUrLQc0sjqc0w5jwUaheJOodMPgWpg6FeWT&_nc_zt=23&_nc_ht=scontent.fnqn2-1.fna&_nc_gid=TmLhO64wwSm0hcyGp2kghA&_nc_ss=7b289&oh=00_AQGkI26KOFvoScUsd78x9ZOk63fBgLV-oGSgb7wq74KLtA&oe=6A97A92B" alt="Instalaciones Solares Península EYS" class="w-full h-[420px] object-cover"> -->
+                            <img src="https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/Peni%CC%81nsula.jpeg" alt="Instalaciones Solares Península EYS" class="w-full h-[420px] object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-darkblue via-transparent to-transparent"></div>
+
+                            <div class="absolute bottom-6 left-6 right-6 bg-brand-darkblue/90 backdrop-blur-md p-6 rounded-2xl border border-brand-accent/40">
+                                <p class="text-xs text-brand-accent font-bold uppercase tracking-widest">Sustentabilidad Regional</p>
+                                <h4 class="text-xl font-bold text-white">Ingeniería e Innovación Energética</h4>
+                                <p class="text-xs text-gray-300 mt-1">Soluciones integrales adaptadas a los desafíos de la región patagónica.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Institucional con Portada e Interacción Directa -->
+    <section id="video-seccion" class="py-16 bg-white text-gray-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="inline-block bg-brand-light text-brand-accent font-semibold px-4 py-1 rounded-full text-xs uppercase tracking-widest border border-brand-accent/20 mb-3">
+                    <i class="fa-solid fa-circle-play mr-1 text-brand-accent"></i> Presentación Institucional
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-brand-blue">Conocé Abastecedora Patagónica</h2>
+                <p class="text-gray-600 text-sm mt-2">Un recorrido por nuestros 45 años de historia y servicio en la región.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-gray-200 relative group">
+                <div id="video-container" class="relative w-full" style="padding-top: 56.25%;">
+
+                    <!-- Portada de Video con Thumbnail HD Oficial de YouTube -->
+                    <!-- <div id="video-poster" class="absolute inset-0 bg-cover bg-center cursor-pointer transition-transform duration-500 group-hover:scale-105"
+                         style="background-image: url('https://img.youtube.com/vi/Pvqg4eNbUl4/hqdefault.jpg');"
+                         onclick="playInstitutionalVideo()"> -->
+                       <div id="video-poster" class="absolute inset-0 bg-cover bg-center cursor-pointer transition-transform duration-500 group-hover:scale-105"
+                           style="background-image: url('https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/Foto%20de%20video%20institucional.png');"
+                           onclick="playInstitutionalVideo()">
+
+                        <!-- Overlay Oscuro -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 flex flex-col items-center justify-center p-6 text-center">
+
+                            <!-- Botón Play Animado -->
+                            <div class="w-20 h-20 sm:w-24 sm:h-24 bg-red-600 group-hover:bg-red-500 text-white rounded-full flex items-center justify-center shadow-2xl shadow-red-600/50 transition-all transform group-hover:scale-110 mb-4">
+                                <i class="fa-solid fa-play text-2xl sm:text-3xl ml-1"></i>
+                            </div>
+
+                            <span class="text-white text-lg sm:text-xl font-bold drop-shadow-md">
+                                Reproducir Video Institucional
+                            </span>
+                            <span class="text-gray-300 text-xs sm:text-sm mt-1 flex items-center gap-1.5">
+                                <i class="fa-brands fa-youtube text-red-500 text-base"></i> Abastecedora Patagónica en YouTube
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Contenedor del Iframe (Se activa al hacer clic o mediante fallback) -->
+                    <div id="iframe-holder" class="hidden absolute inset-0"></div>
+                </div>
+            </div>
+
+            <!-- Botones de Acción Directa -->
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+                <a href="https://www.youtube.com/watch?v=Pvqg4eNbUl4" target="_blank" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md transition">
+                    <i class="fa-brands fa-youtube text-lg"></i> Abrir video directo en YouTube
+                </a>
+                <!-- <span class="text-xs text-gray-500">(Ideal si tu navegador restringe la reproducción en ventanas integradas)</span> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores Institucionales -->
+    <section id="valores" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-bold text-sm tracking-widest uppercase">Principios que nos definen</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue mt-2">Nuestros Valores</h2>
+                <p class="text-gray-600 mt-3">Fundamentos con los que operamos diariamente en toda la Patagonia.</p>
+                <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Responsabilidad -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-xl transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-brand-blue text-brand-accent rounded-full flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-blue text-lg mb-2">Responsabilidad</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Integridad y conciencia en decisiones que reflejan valores familiares y consideran el bienestar de la comunidad y el medio ambiente.
+                    </p>
+                </div>
+
+                <!-- Colaboración -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-xl transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-brand-blue text-brand-accent rounded-full flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-blue text-lg mb-2">Colaboración</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Todos somos parte del resultado. Trabajo en equipo para crear soluciones que beneficien a la sociedad y protejan el entorno.
+                    </p>
+                </div>
+
+                <!-- Herencia e Innovación -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-xl transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-brand-blue text-brand-accent rounded-full flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-blue text-lg mb-2">Herencia e Innovación</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Combinamos la experiencia generacional con un enfoque innovador para asesorar según las necesidades actuales del mercado.
+                    </p>
+                </div>
+
+                <!-- Compromiso -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-xl transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-brand-blue text-brand-accent rounded-full flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-blue text-lg mb-2">Compromiso</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Promovemos la educación, el bienestar y el uso responsable de la energía, garantizando la seguridad en todas las operaciones.
+                    </p>
+                </div>
+
+                <!-- Transparencia -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-xl transition-all duration-300 text-center group md:col-span-3 lg:col-span-1">
+                    <div class="w-16 h-16 bg-brand-blue text-brand-accent rounded-full flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-door-open"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-blue text-lg mb-2">Transparencia</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Operamos con claridad y honestidad, manteniendo una comunicación abierta y cercana con nuestros colaboradores y la comunidad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectores / Soluciones Comercializadas -->
+    <section id="soluciones" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-accent font-bold text-sm tracking-widest uppercase">Líneas de Productos</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue mt-2">Soluciones para cada Necesidad</h2>
+                </div>
+                <p class="text-gray-600 text-sm max-w-md mt-4 md:mt-0">
+                    Suministramos insumos eléctricos certificados para proyectos de gran escala, comercios y reformas residenciales.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tarjeta Industria -->
+                <div class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg border border-gray-100 group hover:shadow-2xl transition-all">
+                    <div class="h-52 overflow-hidden relative">
+                        <!-- <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Materiales Eléctricos Industriales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> -->
+                        <img src="https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/energi%CC%81a%20e%20industria.png" alt="Materiales Eléctricos Industriales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span class="absolute bottom-4 left-4 bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-full">Para la Industria</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-bold text-brand-blue">Energía & Industria</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Conductores de alta y media tensión</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Tableros industriales y protecciones</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Motores, variadores y automatización</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Equipos de respaldo UPS y estabilizadores</li>
+                        </ul>
+                        <a href="#contacto" class="block text-center bg-white hover:bg-brand-blue hover:text-white text-brand-blue border border-gray-200 font-bold py-2.5 rounded-xl transition-colors text-sm">
+                            Consultar Catálogo Industrial
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Comercio -->
+                <div class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg border border-gray-100 group hover:shadow-2xl transition-all">
+                    <div class="h-52 overflow-hidden relative">
+                        <!-- <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80" alt="Iluminación Comercial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> -->
+                        <img src="https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/iluminacio%CC%81n%20eficiente%20y%20moderna.png" alt="Iluminación Comercial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span class="absolute bottom-4 left-4 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-full">Para el Comercio</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-bold text-brand-blue">Iluminación Eficiente y Moderna</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Iluminación LED de alto rendimiento</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Cableado estructurado y conectividad</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Luminarias decorativas e inteligentes</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Llaves de comando y diseño arquitectónico</li>
+                        </ul>
+                        <a href="#contacto" class="block text-center bg-white hover:bg-brand-blue hover:text-white text-brand-blue border border-gray-200 font-bold py-2.5 rounded-xl transition-colors text-sm">
+                            Consultar Soluciones Comerciales
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Hogar -->
+                <div class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg border border-gray-100 group hover:shadow-2xl transition-all">
+                    <div class="h-52 overflow-hidden relative">
+                        <!-- <img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&w=800&q=80" alt="Materiales Eléctricos Residenciales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> -->
+                        <img src="https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/seguridad%20y%20confort.png" alt="Materiales Eléctricos Residenciales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <span class="absolute bottom-4 left-4 bg-brand-yellow text-brand-blue text-xs font-bold px-3 py-1 rounded-full">Para el Hogar</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-bold text-brand-blue">Seguridad & Confort Doméstico</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Térmicas, disyuntores y cajas para embutir</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Lámparas, veladores y luminarias decorativas</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Soluciones para el hogar conectado</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-xs"></i> Material para instalaciones fijas seguras</li>
+                        </ul>
+                        <a href="#contacto" class="block text-center bg-white hover:bg-brand-blue hover:text-white text-brand-blue border border-gray-200 font-bold py-2.5 rounded-xl transition-colors text-sm">
+                            Consultar para el Hogar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Marcas Destacadas (8 Marcas: Schneider, Cambre, Cobrhil, Gralf, Conextube, Roker, Gabexel, Steck) -->
+    <section class="py-16 bg-white border-y border-gray-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-brand-accent font-bold text-xs uppercase tracking-widest block mb-2">Distribución Oficial</span>
+            <h3 class="text-2xl font-black text-brand-blue mb-10">Representamos a las Mejores Marcas del Mercado Eléctrico</h3>
+
+            <div class="flex flex-wrap items-center justify-center gap-6">
+
+                <!-- 1. Schneider -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 group">
+                    <img src="https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/3.png"
+                         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/schneider.png';"
+                         alt="Schneider Electric" class="max-h-14 sm:max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300">
+                </div>
+
+                <!-- 2. Cambre -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 group">
+                    <img src="https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/14.png"
+                         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/cambre.png';"
+                         alt="Cambre" class="max-h-14 sm:max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300">
+                </div>
+
+                <!-- 3. Cobrhil -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 group">
+                    <img src="https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/11.png"
+                         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/cobrhil.png';"
+                         alt="Cobrhil" class="max-h-14 sm:max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300">
+                </div>
+
+                <!-- 4. Gralf -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 group">
+                    <img src="https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/19.png"
+                         alt="Gralf" class="max-h-14 sm:max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300">
+                </div>
+
+                <!-- 5. Conextube -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 group">
+                    <img src="https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/1.png"
+                         alt="Conextube" class="max-h-14 sm:max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300">
+                </div>
+
+                <!-- 6. Roker -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 group">
+                    <img src="https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/4.png"
+                         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/roker.png';"
+                         alt="Roker" class="max-h-14 sm:max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300">
+                </div>
+
+                <!-- 7. Gabexel -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 group">
+                    <img src="https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/2.png"
+                         alt="Gabexel" class="max-h-14 sm:max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300">
+                </div>
+
+                <!-- 8. Steck -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 bg-gray-50 rounded-2xl border border-gray-100 hover:border-brand-accent hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 group">
+                    <img src="https://raw.githubusercontent.com/abaspat/homepage/a3515bd4a8e680c8380c177206d28d99f7da12ff/Marcas/10.png"
+                         alt="Steck" class="max-h-14 sm:max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto y Ubicación -->
+    <section id="contacto" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+
+                <!-- Info de Contacto Real -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-accent font-bold text-sm tracking-widest uppercase">Atención Directa</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue mt-2">Ponete en Contacto</h2>
+                        <p class="text-gray-600 mt-3">
+                            Estamos para asesorarte, preparar tu cotización o responder tus consultas de stock.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-blue text-brand-accent rounded-xl flex items-center justify-center text-xl shrink-0 shadow-md">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-blue">Sede Comercial</h4>
+                                <p class="text-sm text-gray-700 font-medium">Dr. Ávila 560, (CP 9120)</p>
+                                <p class="text-xs text-gray-500">Puerto Madryn, Chubut, Patagonia Argentina</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-blue text-brand-accent rounded-xl flex items-center justify-center text-xl shrink-0 shadow-md">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-blue">Teléfonos</h4>
+                                <p class="text-sm text-gray-700 font-medium">(280) 445-3668</p>
+                                <a href="https://wa.me/5492804975043" target="_blank" class="text-xs text-green-600 font-bold hover:underline flex items-center gap-1 mt-0.5">
+                                    <i class="fa-brands fa-whatsapp"></i> WhatsApp: 280 497-5043
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-blue text-brand-accent rounded-xl flex items-center justify-center text-xl shrink-0 shadow-md">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-blue">Correo Electrónico</h4>
+                                <p class="text-sm font-semibold text-brand-blue">ventas@abaspat.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-blue text-brand-accent rounded-xl flex items-center justify-center text-xl shrink-0 shadow-md">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-blue">Horarios de Atención</h4>
+                                <p class="text-sm text-gray-600">Lunes a Viernes: 08:00 - 19:00 hs</p>
+                                <p class="text-sm text-gray-600">Sábados: 09:00 - 13:00 hs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-gray-100">
+                        <h3 class="text-2xl font-bold text-brand-blue mb-6">Envianos tu solicitud de cotización</h3>
+
+                        <form id="contact-form" onsubmit="event.preventDefault(); handleSubmit();" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Nombre Completo *</label>
+                                    <input type="text" id="contact-name" required placeholder="Tu nombre" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-accent focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Empresa / Razón Social</label>
+                                    <input type="text" id="contact-company" placeholder="Opcional" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-accent focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Email *</label>
+                                    <input type="email" id="contact-email" required placeholder="contacto@ejemplo.com" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-accent focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Teléfono / WhatsApp *</label>
+                                    <input type="tel" id="contact-phone" required placeholder="Ej: 280 4975043" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-accent focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Mensaje o Lista de Materiales *</label>
+                                <textarea id="contact-msg" rows="4" required placeholder="Ingresá el detalle de tu pedido o proyecto..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-accent focus:outline-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-accent hover:bg-brand-accentHover text-white font-bold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Enviar mensaje
+                            </button>
+                        </form>
+
+                        <div id="form-message" class="hidden mt-4 p-4 rounded-xl text-center text-sm"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="bg-brand-darkblue text-white pt-16 pb-8 border-t border-blue-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-blue-900/60">
+
+                <!-- Columna 1: Branding con imagen -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <img src="https://raw.githubusercontent.com/abaspat/homepage/ab3e505c027c0b0a955a20da7ed8ad68fa24a61c/logo_ajustado.png"
+                             alt="Abastecedora Patagónica"
+                             class="h-10 w-auto object-contain brightness-0 invert">
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Empresa familiar dedicada a la comercialización y distribución de materiales eléctricos e iluminación desde 1980 en la Patagonia.
+                    </p>
+                    <!-- Iconos de Redes Sociales -->
+                    <div class="flex space-x-3 pt-2">
+                        <a href="https://www.instagram.com/abastecedorapatagonica" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-brand-accent rounded-lg flex items-center justify-center transition" title="Instagram"><i class="fa-brands fa-instagram text-sm"></i></a>
+                        <a href="https://www.facebook.com/abastecedorapatagonica" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-brand-accent rounded-lg flex items-center justify-center transition" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                        <a href="https://ar.linkedin.com/company/abastecedora-patag%C3%B3nica" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-brand-accent rounded-lg flex items-center justify-center transition" title="LinkedIn"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                    </div>
+                </div>
+
+
+                <!-- Columna 2: Navegación Rápida -->
+                <div>
+                    <h4 class="text-sm font-bold text-brand-accent uppercase tracking-wider mb-4">Navegación</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><a href="#inicio" class="hover:text-brand-accent transition">Inicio</a></li>
+                        <li><a href="#nosotros" class="hover:text-brand-accent transition">Sobre Nosotros</a></li>
+                        <li><a href="#propocito-mision" class="hover:text-brand-accent transition">Misión & Visión</a></li>
+                        <li><a href="#renovables" class="hover:text-brand-accent transition">Proyectos Energías Renovables</a></li>
+                        <li><a href="#valores" class="hover:text-brand-accent transition">Valores Institucionales</a></li>
+                        <li><a href="#soluciones" class="hover:text-brand-accent transition">Industria, Comercio y Hogar</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Energías Renovables -->
+                <div>
+                    <h4 class="text-sm font-bold text-brand-accent uppercase tracking-wider mb-4">Innovación & Sustentabilidad</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-3">
+                        Buscamos la sustentabilidad en energía e innovación promoviendo soluciones de autogeneración limpia en toda la Patagonia.
+                    </p>
+                    <a href="https://www.peninsulaeys.com/" target="_blank" class="inline-block bg-brand-accent/20 text-brand-accent text-xs px-3 py-1.5 rounded-lg border border-brand-accent/40 hover:bg-brand-accent/30 transition"></i> Península EYS</a>
+                </div>
+
+                <!-- Columna 4: Contacto Directo -->
+                <div>
+                    <h4 class="text-sm font-bold text-brand-accent uppercase tracking-wider mb-4">Contacto Oficial</h4>
+                    <div class="space-y-2 text-xs text-gray-300">
+                        <p><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Dr. Ávila 560, Puerto Madryn</p>
+                        <p><i class="fa-solid fa-phone text-brand-accent mr-1"></i> (280) 445-3668</p>
+                        <p><i class="fa-brands fa-whatsapp text-green-400 mr-1"></i> 280 497-5043</p>
+                        <p><i class="fa-solid fa-envelope text-brand-accent mr-1"></i> ventas@abaspat.com</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 gap-4">
+                <p>&copy; 1980 - 2026 Abastecedora Patagónica. Todos los derechos reservados.</p>
+                <p class="flex items-center gap-1">
+                    Puerto Madryn, Chubut, Patagonia Argentina
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script de Interactividad -->
+    <script>
+        // Toggle Menú Mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Manejo de Formulario Hero
+        function handleQuickQuote() {
+            const sector = document.getElementById('sector-select').value;
+            const name = document.getElementById('quick-name').value;
+            const phone = document.getElementById('quick-phone').value;
+
+            const text = `Hola Abastecedora Patagónica! Mi nombre es ${name} (${sector}). Quisiera consultar sobre presupuesto y disponibilidad de materiales. Tel: ${phone}.`;
+            const encodedText = encodeURIComponent(text);
+
+            window.open(`https://wa.me/5492804975043?text=${encodedText}`, '_blank');
+        }
+
+        // Manejo de Formulario Principal
+        function handleSubmit() {
+            const name = document.getElementById('contact-name').value;
+            const msg = document.getElementById('contact-msg').value;
+            const msgBox = document.getElementById('form-message');
+
+            msgBox.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+            msgBox.classList.add('bg-green-100', 'text-green-800', 'border', 'border-green-200');
+            msgBox.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> ¡Muchas gracias ' + name + '! Tu mensaje ha sido enviado a ventas@abaspat.com. Nos contactaremos a la brevedad.';
+
+            const text = `Hola Abastecedora Patagónica! Mi nombre es ${name}. Consulta desde el sitio web: ${msg}`;
+            const encodedText = encodeURIComponent(text);
+
+            setTimeout(() => {
+                window.open(`https://wa.me/5492804975043?text=${encodedText}`, '_blank');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
