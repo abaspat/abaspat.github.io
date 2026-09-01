@@ -442,7 +442,7 @@
         </div>
     </section>
 
-    <!-- Video Institucional con Portada e Interacción Directa -->
+    <!-- Video Institucional con Enlace Directo a YouTube al Hacer Clic -->
     <section id="video-seccion" class="py-16 bg-white text-gray-800 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-10">
@@ -454,15 +454,11 @@
             </div>
 
             <div class="max-w-4xl mx-auto bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-gray-200 relative group">
-                <div id="video-container" class="relative w-full" style="padding-top: 56.25%;">
+                <div class="relative w-full" style="padding-top: 56.25%;">
 
-                    <!-- Portada de Video con Thumbnail HD Oficial de YouTube -->
-                    <!-- <div id="video-poster" class="absolute inset-0 bg-cover bg-center cursor-pointer transition-transform duration-500 group-hover:scale-105"
-                         style="background-image: url('https://img.youtube.com/vi/Pvqg4eNbUl4/hqdefault.jpg');"
-                         onclick="playInstitutionalVideo()"> -->
-                       <div id="video-poster" class="absolute inset-0 bg-cover bg-center cursor-pointer transition-transform duration-500 group-hover:scale-105"
-                           style="background-image: url('https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/Foto%20de%20video%20institucional.png');"
-                           onclick="playInstitutionalVideo()">
+                    <!-- Enlace directo a YouTube al hacer clic en la imagen -->
+                    <a href="https://www.youtube.com/watch?v=Pvqg4eNbUl4" target="_blank" class="absolute inset-0 bg-cover bg-center cursor-pointer transition-transform duration-500 group-hover:scale-105 block"
+                       style="background-image: url('https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/Foto%20de%20video%20institucional.png');">
 
                         <!-- Overlay Oscuro -->
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 flex flex-col items-center justify-center p-6 text-center">
@@ -473,25 +469,14 @@
                             </div>
 
                             <span class="text-white text-lg sm:text-xl font-bold drop-shadow-md">
-                                Reproducir Video Institucional
+                                Ver Video Institucional en YouTube
                             </span>
                             <span class="text-gray-300 text-xs sm:text-sm mt-1 flex items-center gap-1.5">
-                                <i class="fa-brands fa-youtube text-red-500 text-base"></i> Abastecedora Patagónica en YouTube
+                                <i class="fa-brands fa-youtube text-red-500 text-base"></i> Abrir en nueva pestaña
                             </span>
                         </div>
-                    </div>
-
-                    <!-- Contenedor del Iframe (Se activa al hacer clic o mediante fallback) -->
-                    <div id="iframe-holder" class="hidden absolute inset-0"></div>
+                    </a>
                 </div>
-            </div>
-
-            <!-- Botones de Acción Directa -->
-            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
-                <a href="https://www.youtube.com/watch?v=Pvqg4eNbUl4" target="_blank" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md transition">
-                    <i class="fa-brands fa-youtube text-lg"></i> Abrir video directo en YouTube
-                </a>
-                <!-- <span class="text-xs text-gray-500">(Ideal si tu navegador restringe la reproducción en ventanas integradas)</span> -->
             </div>
         </div>
     </section>
@@ -585,7 +570,7 @@
                         <!-- <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Materiales Eléctricos Industriales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> -->
                         <img src="https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/energi%CC%81a%20e%20industria.png" alt="Materiales Eléctricos Industriales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-full">Para la Industria</span>
+                        <!-- <span class="absolute bottom-4 left-4 bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-full">Para la Industria</span> -->
                     </div>
                     <div class="p-6 space-y-4">
                         <h3 class="text-xl font-bold text-brand-blue">Energía & Industria</h3>
@@ -607,7 +592,7 @@
                         <!-- <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80" alt="Iluminación Comercial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> -->
                         <img src="https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/iluminacio%CC%81n%20eficiente%20y%20moderna.png" alt="Iluminación Comercial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-full">Para el Comercio</span>
+                        <!--<span class="absolute bottom-4 left-4 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-full">Para el Comercio</span> -->
                     </div>
                     <div class="p-6 space-y-4">
                         <h3 class="text-xl font-bold text-brand-blue">Iluminación Eficiente y Moderna</h3>
@@ -629,7 +614,7 @@
                         <!-- <img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&w=800&q=80" alt="Materiales Eléctricos Residenciales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> -->
                         <img src="https://raw.githubusercontent.com/abaspat/homepage/9b7b97dd992abf2c0a0329c860e433fa814fc632/Images/seguridad%20y%20confort.png" alt="Materiales Eléctricos Residenciales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 bg-brand-yellow text-brand-blue text-xs font-bold px-3 py-1 rounded-full">Para el Hogar</span>
+                        <!--<span class="absolute bottom-4 left-4 bg-brand-yellow text-brand-blue text-xs font-bold px-3 py-1 rounded-full">Para el Hogar</span> -->
                     </div>
                     <div class="p-6 space-y-4">
                         <h3 class="text-xl font-bold text-brand-blue">Seguridad & Confort Doméstico</h3>
